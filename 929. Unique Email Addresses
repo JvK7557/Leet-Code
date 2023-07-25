@@ -1,0 +1,7 @@
+const getUniqueEmailKey = email => {
+  const [local, domain] = email.split ('@')
+  return local.split ('+') // Take everything before +
+    .split ('.').join ('') // Remove dots
+    + '@' + domain
+}
+const numUniqueEmails = emails => new Set (emails.map (getUniqueEmailKey)).size
